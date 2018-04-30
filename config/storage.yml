@@ -17,7 +17,8 @@ local:
 # Remember not to checkin your GCS keyfile to a repository
 google:
   service: GCS
-  project: <%= ENV.fetch('GCP_PROJECT') {''} %>
+  project: <%= ENV.fetch('GOOGLE_PROJECT') {'tf-gcp-demo'} %>
+  credentials: <%= ENV.fetch('GOOGLE_APPLICATION_CREDENTIALS') { ENV.fetch('HOME') + "/tf-gcp-demo.json"} %>
   bucket: tf-gcp-demo-usercontent
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
