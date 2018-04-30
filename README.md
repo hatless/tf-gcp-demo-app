@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app barely does anything.
 
-Things you may want to cover:
+One thing it does do is upload files to a GCS bucket.
 
-* Ruby version
+The relational database is currently configured to sqlite.
 
-* System dependencies
+Given a `GOOGLE_PROJECT` and `GOOGLE_APPLICATION_CREDENTIALS` path,
+it should point to the appropriate project credentials. The bucket
+name is hard-coded in `config/storage.yml`.
 
-* Configuration
+## Quickstart
 
-* Database creation
+### Prerequisites:
 
-* Database initialization
+* `rbenv`
+* `ruby-build`
+* a bucket called `tf-gcp-demo-uploads`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Initialize:
+```
+rbenv install
+gem install bundler
+bundle
+rake db:migrate
+rails s
+```
+The app will be accessible at `http://localhost:3000`
